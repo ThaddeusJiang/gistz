@@ -1,5 +1,15 @@
-.App {
-  text-align: center;
+@media screen and (min-width: 600px) {
+  .App {
+    margin: 0 auto;
+    max-width: 600px;
+  }
+}
+
+@media screen and (max-width: 599px) {
+  .App {
+    margin: 0 auto;
+    max-width: 300px;
+  }
 }
 
 .App-logo {

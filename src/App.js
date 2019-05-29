@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Remarkable from 'remarkable'
-import logo from './logo.svg'
+
+import typography from './utils/typography'
+
 import './App.css'
 
 const GITHUB_API = `https://api.github.com/`
@@ -14,7 +16,9 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       const { pathname } = document.location
-      const [, , gistId] = pathname.split('/')
+      const [, , gistId = '52eac5dda788ab05fc4dd0b08ff8d6f6'] = pathname.split(
+        '/',
+      )
 
       const result = await fetch(`${GITHUB_API}${GIST_URL}${gistId}`).then(
         (res) => res.json(),
@@ -23,8 +27,8 @@ function App() {
       const md = new Remarkable()
 
       const { description, updated_at, files } = result
-      if (files[`index.md`]) {
-        const content = files[`index.md`].content
+      if (files[`README.md`]) {
+        const content = files[`README.md`].content
         setTitle(description)
         setUpdatedAt(updated_at)
         setContent(md.render(content))
@@ -34,6 +38,10 @@ function App() {
     }
 
     fetchData()
+  })
+
+  useEffect(() => {
+    typography.injectStyles()
   })
 
   return (
