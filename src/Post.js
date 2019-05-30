@@ -33,7 +33,7 @@ const Post = ({ gistId }) => {
   }, [gistId])
 
   return (
-    <div>
+    <div className="post">
       <h1>{postTitle}</h1>
       <p>{updatedAt}</p>
       <div dangerouslySetInnerHTML={{ __html: postDM }} />

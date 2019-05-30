@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Gistz",
+  "name": "Gistz: generate your GitHub gist to post",
   "icons": [
     {
       "src": "favicon.ico",

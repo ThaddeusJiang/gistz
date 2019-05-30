@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import typography from './utils/typography'
 import Post from './Post'
 import Home from './Home'
 import User from './User'
@@ -14,10 +13,6 @@ function App() {
   const [page, setPage] = useState('')
 
   useEffect(() => {
-    typography.injectStyles()
-  })
-
-  useEffect(() => {
     if (userId !== '' && gistId === '') {
       setPage('user')
     } else if (userId !== '' && gistId !== '') {
@@ -28,7 +23,7 @@ function App() {
   }, [userId, gistId])
 
   return (
-    <div className="App">
+    <div>
       {page === 'home' && <Home />}
       {page === 'user' && <User />}
       {page === 'gist' && <Post gistId={gistId} />}
