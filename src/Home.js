@@ -12,7 +12,9 @@ const Home = () => (
           <li>
             Go to a gist in <strong>GitHub Gist</strong>
           </li>
-          <li>Replace gist.github.com with gistz.netlify.com</li>
+          <li>
+            Replace gist.github.com with <strong>gistz.netlify.com</strong>
+          </li>
           <li>There's no step three</li>
         </ol>
 

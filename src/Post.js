@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Remarkable from 'remarkable'
+import { converter } from './utils/md'
 
 import { GITHUB_API, GIST_URL } from './utils/constants'
 
@@ -12,14 +12,12 @@ const Post = ({ gistId }) => {
     async function fetchData(api) {
       const result = await fetch(api).then((res) => res.json())
 
-      const md = new Remarkable()
-
       const { description, updated_at, files } = result
       if (files && files[`README.md`]) {
         const content = files[`README.md`].content
         setTitle(description)
         setUpdatedAt(updated_at)
-        setContent(md.render(content))
+        setContent(converter.makeHtml(content))
       } else {
         setTitle('not found!')
       }
