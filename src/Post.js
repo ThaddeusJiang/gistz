@@ -16,7 +16,10 @@ const Post = ({ gistId }) => {
       if (files && files[`README.md`]) {
         const content = files[`README.md`].content
         setTitle(description)
-        setUpdatedAt(updated_at)
+
+        setUpdatedAt(
+          new Intl.DateTimeFormat('zh-Hans-CN').format(new Date(updated_at)),
+        )
         setContent(converter.makeHtml(content))
       } else {
         setTitle('not found!')
@@ -33,7 +36,7 @@ const Post = ({ gistId }) => {
   return (
     <div className="post">
       <h1>{postTitle}</h1>
-      <p>{updatedAt}</p>
+      <p className="post_meta">{updatedAt}</p>
       <div dangerouslySetInnerHTML={{ __html: postDM }} />
     </div>
   )
