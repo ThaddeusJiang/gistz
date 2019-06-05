@@ -64,7 +64,7 @@ a.button {
   margin: 100px auto;
 }
 
-@media (max-width: 1130px) {
+@media (max-width: 1336px) {
   .landing header video {
     margin-right: 0px;
     margin-bottom: 20px;

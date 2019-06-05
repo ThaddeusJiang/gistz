@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { converter } from './utils/md'
-
 import { GITHUB_API, GIST_URL } from './utils/constants'
+import { converter } from './utils/md'
+import Skeleton from './components/Skeleton'
 
 const Post = ({ gistId }) => {
   const [postTitle, setTitle] = useState('')
@@ -35,9 +35,21 @@ const Post = ({ gistId }) => {
 
   return (
     <div className="post">
-      <h1>{postTitle}</h1>
-      <p className="post_meta">{updatedAt}</p>
-      <div dangerouslySetInnerHTML={{ __html: postDM }} />
+      <h1>
+        {postTitle === '' ? (
+          <Skeleton height="2rem" width="15rem" />
+        ) : (
+          postTitle
+        )}
+      </h1>
+      <p className="post_meta">
+        {updatedAt === '' ? <Skeleton height="1rem" width="8rem" /> : updatedAt}
+      </p>
+      {postDM === '' ? (
+        <Skeleton height="100vh" width="100%" />
+      ) : (
+        <div dangerouslySetInnerHTML={{ __html: postDM }} />
+      )}
     </div>
   )
 }
