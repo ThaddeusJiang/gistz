@@ -6,6 +6,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/c532530a-b81c-455a-b079-b3fc4815e1c7/deploy-status)](https://app.netlify.com/sites/gistz/deploys)
 ![Travis (.org)](https://img.shields.io/travis/thaddeusjiang/gistz.svg)
+![GitHub](https://img.shields.io/github/license/thaddeusjiang/gistz.svg)
 
 
 Generate your GitHub gist to Post.
