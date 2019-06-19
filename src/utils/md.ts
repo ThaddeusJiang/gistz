@@ -6,7 +6,14 @@ showdown.extension('headerlink', function() {
     {
       type: 'output',
       regex: /(<h(\d) id="(.+)">(.+?))(<\/h\2>)/g,
-      replace: function(wm, g1, g2, id, g4, g5) {
+      replace: function(
+        wm: string,
+        g1: string,
+        g2: string,
+        id: string,
+        g4: string,
+        g5: string,
+      ) {
         return `<h${g2} id="${g4}"> <a class="header" href="#${g4}">${g4}</a> ${g5}`
       },
     },

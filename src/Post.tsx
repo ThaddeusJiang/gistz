@@ -3,13 +3,13 @@ import { GITHUB_API, GIST_URL } from './utils/constants'
 import { converter } from './utils/md'
 import Skeleton from './components/Skeleton'
 
-const Post = ({ gistId }) => {
+const Post = ({ gistId }: { gistId: string }) => {
   const [postTitle, setTitle] = useState('')
   const [updatedAt, setUpdatedAt] = useState('')
   const [postDM, setContent] = useState('')
 
   useEffect(() => {
-    async function fetchData(api) {
+    async function fetchData(api: string) {
       const result = await fetch(api).then((res) => res.json())
 
       const { description, updated_at, files } = result
